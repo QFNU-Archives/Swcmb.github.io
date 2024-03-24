@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Floyd最短路径算法的python函数实现 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Floyd最短路径算法的python函数实现</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-03-19T13:31:00.000Z" id="date"> 2024-03-19</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-03-19T13:31:10.824Z" id="updated"> 2024-03-19</time></div></span><br><span>文章总字数: <div class="control">291</div></span><br><span>预计阅读时间: <div class="control">1 分钟</div></span></div></div><hr><div id="post-content"><iframe src="//player.bilibili.com/player.html?aid=751265795&bvid=BV19k4y1Q7Gj&cid=1413631056&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="650px"> </iframe>
+
+<h2 id="示例图："><a href="#示例图：" class="headerlink" title="示例图："></a>示例图：</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">inf<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+graph <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Floyd最短路径算法的python函数实现："><a href="#Floyd最短路径算法的python函数实现：" class="headerlink" title="Floyd最短路径算法的python函数实现："></a>Floyd最短路径算法的python函数实现：</h2><pre class="line-numbers language-none"><code class="language-none">def floyd(graph):
+    FMAX&#x3D;999
+    n&#x3D;len(graph)
+    d&#x3D;[[graph[i][j] if graph[i][j]!&#x3D;0 else FMAX for i in range(n)]for j in range(n)]
+    for k in range(n):#中转节点
+        for i in range(n):#起始节点
+            for j in range(n):#结束节点
+                #起始节点-&gt;结束节点 和 起始节点-&gt;中转节点-&gt;结束节点 之间的最小值
+                d[i][j]&#x3D;min(d[i][j],d[i][k]+d[k][j])
+    return d
+
+print(floyd(graph))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Result："><a href="#Result：" class="headerlink" title="Result："></a>Result：</h2><pre class="line-numbers language-none"><code class="language-none">[[8, 4, 12, 19, 21, 11, 9, 8, 14], 
+ [4, 8, 8, 15, 22, 12, 12, 11, 10], 
+ [12, 8, 4, 7, 14, 4, 6, 7, 2], 
+ [19, 15, 7, 14, 9, 11, 13, 14, 9], 
+ [21, 22, 14, 9, 18, 10, 12, 13, 16], 
+ [11, 12, 4, 11, 10, 4, 2, 3, 6], 
+ [9, 12, 6, 13, 12, 2, 2, 1, 6], 
+ [8, 11, 7, 14, 13, 3, 1, 2, 7], 
+ [14, 10, 2, 9, 16, 6, 6, 7, 4]]
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/20/C-%E7%9A%84%E7%B1%BB/">← 下一篇 C++的类</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/19/%E8%B7%AF%E5%BE%84/">路径 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E5%9B%BE%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">示例图：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Floyd%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E7%9A%84python%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">Floyd最短路径算法的python函数实现：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Result%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">Result：</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

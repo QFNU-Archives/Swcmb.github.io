@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Dijkstra最短路径算法的python函数实现 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Dijkstra最短路径算法的python函数实现</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-03-19T07:57:41.000Z" id="date"> 2024-03-19</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-03-19T08:12:03.627Z" id="updated"> 2024-03-19</time></div></span><br><span>文章总字数: <div class="control">536</div></span><br><span>预计阅读时间: <div class="control">2 分钟</div></span></div></div><hr><div id="post-content"><iframe src="//player.bilibili.com/player.html?aid=586430293&bvid=BV1zz4y1m7Nq&cid=289260026&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="650px"> </iframe>
+
+<h2 id="视频中的图的邻接矩阵表示法："><a href="#视频中的图的邻接矩阵表示法：" class="headerlink" title="视频中的图的邻接矩阵表示法："></a>视频中的图的邻接矩阵表示法：</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python">inf<span class="token operator">=</span><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">'inf'</span><span class="token punctuation">)</span>
+graph <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">14</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">11</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">[</span>inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> inf<span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Dijkstra最短路径算法的python函数实现："><a href="#Dijkstra最短路径算法的python函数实现：" class="headerlink" title="Dijkstra最短路径算法的python函数实现："></a>Dijkstra最短路径算法的python函数实现：</h2><pre class="line-numbers language-none"><code class="language-none">def dijkstra(graph,starting_node,node_num):#graph[u][v]表示边e&#x3D;(u,v)的权值，不存在时设为inf
+    # 起始节点starting_node,节点数量node_num
+    used &#x3D; [False for _ in range(node_num)]  # 标记数组，used[v]值为False说明该顶点还没有访问过，在S中，否则在U中！
+    distance &#x3D; [float(&#39;inf&#39;) for _ in range(node_num)]  # 距离数组，distance[i]表示从原点s到i的最短距离，distance[s]&#x3D;0
+    #cost &#x3D; [[float(&#39;inf&#39;) for _ in range(node_num)] for _ in range(node_num)]  # cost[u][v]表示边e&#x3D;(u,v)的权值，不存在时设为inf
+    distance[starting_node]&#x3D;0
+    while True:
+        v&#x3D;-1#v在这里相当于是一个哨兵，对包含起点s做统一处理！
+        for u in range(node_num):#从未使用过的顶点中选择一个距离最小的顶点
+            if not used[u] and (v&#x3D;&#x3D;-1 or distance[u]&lt;distance[v]):
+                v&#x3D;u
+        if v&#x3D;&#x3D;-1:#说明所有顶点都维护到S中了！
+            break
+        used[v]&#x3D;True#将选定的顶点加入到S中，同时进行距离更新
+        for u in range(node_num):#更新U中各个顶点到起点s的距离.之所以更新U中顶点的距离，是因为上一步中确定了k是求出的最短路径节点
+            distance[u]&#x3D;min(distance[u],distance[v]+graph[v][u])
+
+    return distance
+
+inf&#x3D;float(&#39;inf&#39;)
+graph &#x3D; [
+    [0, 4, inf, inf, inf, inf, inf, 8, inf],
+    [4, 0, 8, inf, inf, inf, inf, 11, inf],
+    [inf, 8, 0, 7, inf, 4, inf, inf, 2],
+    [inf, inf, 7, 0, 9, 14, inf, inf, inf],
+    [inf, inf, inf, 9, 0, 10, inf, inf, inf],
+    [inf, inf, 4, 14, 10, 0, 2, inf, inf],
+    [inf, inf, inf, inf, inf, 2, 0, 1, 6],
+    [8, 11, inf, inf, inf, inf, 1, 0, 7],
+    [inf, inf, 2, inf, inf, inf, 6, 7, 0]
+]
+
+print(dijkstra(graph,0,9))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Result："><a href="#Result：" class="headerlink" title="Result："></a>Result：</h2><pre class="line-numbers language-none"><code class="language-none">[0, 4, 12, 19, 21, 11, 9, 8, 14]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/19/%E8%B7%AF%E5%BE%84/">← 下一篇 路径</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/19/C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%90%8E%E9%A2%98/">C++程序设计课后题 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%AD%E7%9A%84%E5%9B%BE%E7%9A%84%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA%E6%B3%95%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">视频中的图的邻接矩阵表示法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dijkstra%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E7%9A%84python%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">Dijkstra最短路径算法的python函数实现：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Result%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">Result：</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

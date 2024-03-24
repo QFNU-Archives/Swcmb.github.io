@@ -1,0 +1,370 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>C++程序设计课后题 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>C++程序设计课后题</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-03-19T06:21:52.000Z" id="date"> 2024-03-19</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-03-19T06:28:38.546Z" id="updated"> 2024-03-19</time></div></span><br><span>文章总字数: <div class="control">2.1k</div></span><br><span>预计阅读时间: <div class="control">12 分钟</div></span></div></div><hr><div id="post-content"><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int sort(int x,int y,int z&#x3D;0)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		return x;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		return y;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)
+	&#123;
+		return z;
+	&#125;
+&#125;
+int main()
+&#123;
+	int a,b,c;
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+	cout&lt;&lt;sort(a,b,c)&lt;&lt;endl;
+	cin&gt;&gt;a&gt;&gt;b;
+	cout&lt;&lt;sort(a,b)&lt;&lt;endl;
+	return 0;
+
+&#125;
+
+-------------------------------------------------
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int sort(int x,int y)
+&#123;
+	if (x&gt;&#x3D;y)&#123; &#x2F;&#x2F;x,y,z
+		cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;
+	&#125;
+	else if (y&gt;&#x3D;x)&#123; &#x2F;&#x2F;y,x,z
+		cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;
+	&#125;
+	return 0;
+&#125;
+int main()
+&#123;
+	int a,b;
+	cin&gt;&gt;a&gt;&gt;b;
+	int &amp;m&#x3D;a;
+	int &amp;n&#x3D;b;
+	sort(m,n);
+	return 0;
+
+&#125;
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int sort(int x,int y,int z)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		if (y&gt;&#x3D;z)&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;x,y,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;x,z,y
+		&#125;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;z)&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;y,x,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;y,z,x
+		&#125;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;y)&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;z,x,y
+		&#125;
+		else&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;z,y,x
+		&#125;
+	&#125;
+	return 0;
+&#125;
+int main()
+&#123;
+	int a,b,c;
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+	int &amp;x&#x3D;a;
+	int &amp;y&#x3D;b;
+	int &amp;z&#x3D;c;
+	sort(x,y,z);
+	return 0;
+
+&#125;
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int sort(int x,int y,int z)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		if (y&gt;&#x3D;z)&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;x,y,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;x,z,y
+		&#125;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;z)&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;y,x,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;y,z,x
+		&#125;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;y)&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;z,x,y
+		&#125;
+		else&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;z,y,x
+		&#125;
+	&#125;
+	return 0;
+&#125;
+float sort(float x,float y,float z)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		if (y&gt;&#x3D;z)&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;x,y,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;x,z,y
+		&#125;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;z)&#123; 
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;y,x,z
+		&#125;	
+		else&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;y,z,x
+		&#125;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;y)&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;z,x,y
+		&#125;
+		else&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;z,y,x
+		&#125;
+	&#125;
+	return 0;
+&#125;
+double sort(double x,double y,double z)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		if (y&gt;&#x3D;z)&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;x,y,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;x,z,y
+		&#125;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;z)&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;y,x,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;y,z,x
+		&#125;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;y)&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;z,x,y
+		&#125;
+		else&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;z,y,x
+		&#125;
+	&#125;
+	return 0;
+&#125;
+
+int main()
+&#123;
+	int a,b,c;
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+	sort(a,b,c);
+	float d,e,f;
+	cin&gt;&gt;d&gt;&gt;e&gt;&gt;f;
+	sort(d,e,f);
+	double g,h,i;
+	cin&gt;&gt;g&gt;&gt;h&gt;&gt;i;
+	sort(g,h,i);
+	return 0;
+
+&#125;
+---------------------------------------------
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+template&lt;typename T&gt;
+T sort(T x,T y,T z)
+&#123;
+	if (x&gt;&#x3D;y &amp;&amp; x&gt;&#x3D;z)&#123; &#x2F;&#x2F;x,y,z
+		if (y&gt;&#x3D;z)&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;x,y,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;x,z,y
+		&#125;
+	&#125;
+	else if (y&gt;&#x3D;x &amp;&amp; y&gt;&#x3D;z)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;z)&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;endl;&#x2F;&#x2F;y,x,z
+		&#125;
+		else&#123;
+			cout&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;y,z,x
+		&#125;
+	&#125;
+	else if (z&gt;&#x3D;x &amp;&amp; z&gt;&#x3D;y)&#123; &#x2F;&#x2F;y,x,z
+		if (x&gt;&#x3D;y)&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;endl;&#x2F;&#x2F;z,x,y
+		&#125;
+		else&#123;
+			cout&lt;&lt;z&lt;&lt;&quot; &quot;&lt;&lt;y&lt;&lt;&quot; &quot;&lt;&lt;x&lt;&lt;endl;&#x2F;&#x2F;z,y,x
+		&#125;
+	&#125;
+	return 0;
+&#125;
+
+int main()
+&#123;
+	int a,b,c;
+	cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+	sort(a,b,c);
+	float d,e,f;
+	cin&gt;&gt;d&gt;&gt;e&gt;&gt;f;
+	sort(d,e,f);
+	double g,h,i;
+	cin&gt;&gt;g&gt;&gt;h&gt;&gt;i;
+	sort(g,h,i);
+	return 0;
+&#125;
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main()
+&#123;
+	string str1,str2;
+	cin&gt;&gt;str1&gt;&gt;str2;
+	str1&#x3D;str1+str2;
+	cout&lt;&lt;&quot;str: &quot;&lt;&lt;str1&lt;&lt;endl;
+	return 0;
+
+&#125;
+--------------------------------------------
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main()
+&#123;
+	string str1;
+	cin&gt;&gt;str1;
+	reverse(str1.begin(),str1.end());
+	cout&lt;&lt;str1&lt;&lt;endl;
+	return 0;
+
+&#125;
+---------------------------------------------
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main()
+&#123;
+	string str1,str2,str3,str4,str5;
+	cin&gt;&gt;str1&gt;&gt;str2&gt;&gt;str3&gt;&gt;str4&gt;&gt;str5;
+	string li[]&#x3D;&#123;str1,str2,str3,str4,str5&#125;;
+	int n&#x3D;sizeof(li)&#x2F;sizeof(li[0]);
+	sort(li,li+n);
+	for (int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cout&lt;&lt;li[i]&lt;&lt;endl;
+	&#125;
+	return 0;
+
+&#125;
+---------------------------------------------
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+int main()
+&#123;
+	while(1)
+	&#123;
+		string str1;
+		cin&gt;&gt;str1;
+		char a&#x3D;str1[0];
+		if (a&#x3D;&#x3D;&#39;A&#39;)
+		&#123;
+			cout&lt;&lt;&quot;OUT:&quot;&lt;&lt;str1&lt;&lt;endl;
+		&#125;
+		else
+		&#123;
+			cout&lt;&lt;&quot;NO OUT!&quot;&lt;&lt;endl;
+			continue;
+		&#125;
+	&#125;
+	return 0;
+
+&#125;
+------------------------------------------------
+
+#include &lt;bits&#x2F;stdc++.h&gt;
+using namespace std;
+string str_sort(string str1,string str2,string str3,string str4,string str5,string str6,string str7,string str8,string str9,string str10)
+&#123;
+	string li[]&#x3D;&#123;str1,str2,str3,str4,str5,str6,str7,str8,str9,str10&#125;;
+	int n&#x3D;sizeof(li)&#x2F;sizeof(li[0]);
+	sort(li,li+n);
+	for (int i&#x3D;0;i&lt;n;i++)
+	&#123;
+		cout&lt;&lt;li[i]&lt;&lt;endl;
+	&#125;
+&#125;
+int main()
+&#123;
+	string str1,str2,str3,str4,str5,str6,str7,str8,str9,str10;
+	cin&gt;&gt;str1&gt;&gt;str2&gt;&gt;str3&gt;&gt;str4&gt;&gt;str5&gt;&gt;str6&gt;&gt;str7&gt;&gt;str8&gt;&gt;str9&gt;&gt;str10;
+	str_sort(str1,str2,str3,str4,str5,str6,str7,str8,str9,str10);
+	return 0;
+
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/19/Dijkstra%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E7%9A%84python%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/">← 下一篇 Dijkstra最短路径算法的python函数实现</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/17/%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2/">压缩字符串 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>

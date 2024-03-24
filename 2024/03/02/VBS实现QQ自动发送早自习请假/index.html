@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VBS实现QQ自动发送早自习请假 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - $1 行","copy":"复制"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: '确认'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>VBS实现QQ自动发送早自习请假</h1><div id="post-info"><span>文章发布时间: <div class="control"><time datetime="2024-03-02T10:17:00.000Z" id="date"> 2024-03-02</time></div></span><br><span>最后更新时间: <div class="control"><time datetime="2024-03-02T11:08:10.014Z" id="updated"> 2024-03-02</time></div></span><br><span>文章总字数: <div class="control">916</div></span><br><span>预计阅读时间: <div class="control">3 分钟</div></span></div></div><hr><div id="post-content"><h1 id="VBS实现QQ自动发送早自习请假"><a href="#VBS实现QQ自动发送早自习请假" class="headerlink" title="VBS实现QQ自动发送早自习请假"></a><strong>VBS实现QQ自动发送早自习请假</strong></h1><p>是否你还在为早自习请假而犯愁，需要在凌晨6点前完成请假手续，导致无法好好休息，甚至需要提前起床？现在，有了这个教程，你可以轻松实现QQ自动发送早自习请假，不再为时间问题而纠结！跟随我们的步骤，一步步操作，让你轻松请假，享受更多休息时间！</p>
+<h2 id="一．配置"><a href="#一．配置" class="headerlink" title="一．配置"></a><strong>一．配置</strong></h2><ol>
+<li>首先下载VBS文件：<a target="_blank" rel="noopener" href="http://47.104.64.75:82/abcd.vbs">http://47.104.64.75:82/abcd.vbs</a></li>
+<li>请尝试运行，若出现报错，请下载：<a target="_blank" rel="noopener" href="http://47.104.64.75:82/wscript.exe">http://47.104.64.75:82/wscript.exe</a>，并将文件放在“C:\Windows\System32”文件夹下</li>
+<li>然后右键abcd.vbs文件，在记事本中编辑</li>
+<li>将“你要说的话”替换为你的请假信息，注意！不要换行！</li>
+<li>然后保存关闭</li>
+<li>打开windows主页面，搜索“任务计划程序”并打开<br>按照图片进行操作：<br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%871.SUFKPM" class='item-img' data-src='https://img.picgo.net/2024/03/01/143c09a0827263743.md.png'><img src="https://img.picgo.net/2024/03/01/143c09a0827263743.md.png" alt="143c09a0827263743.md.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%872.SUFcnA" class='item-img' data-src='https://img.picgo.net/2024/03/01/202d3935ebac5d8f6.md.png'><img src="https://img.picgo.net/2024/03/01/202d3935ebac5d8f6.md.png" alt="202d3935ebac5d8f6.md.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%873.SUFiyJ" class='item-img' data-src='https://img.picgo.net/2024/03/01/3a9377fe19813a6c1.md.png'><img src="https://img.picgo.net/2024/03/01/3a9377fe19813a6c1.md.png" alt="3a9377fe19813a6c1.md.png"></a></li>
+</ol>
+<p>选择一个时间，注意！时间一定为过去的日期<br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%874.SUF5Ir" class='item-img' data-src='https://img.picgo.net/2024/03/01/4a915dc49bd0fc240.png'><img src="https://img.picgo.net/2024/03/01/4a915dc49bd0fc240.png" alt="4a915dc49bd0fc240.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%875.SUFCBm" class='item-img' data-src='https://img.picgo.net/2024/03/01/5333a95cc4ce09f3b.png'><img src="https://img.picgo.net/2024/03/01/5333a95cc4ce09f3b.png" alt="5333a95cc4ce09f3b.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%876.SUFIsb" class='item-img' data-src='https://img.picgo.net/2024/03/01/63ff9d9fd43c9bc44.md.png'><img src="https://img.picgo.net/2024/03/01/63ff9d9fd43c9bc44.md.png" alt="63ff9d9fd43c9bc44.md.png"></a></p>
+<p>找到你的abcd.vbs文件的位置<br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%877.SUFw6L" class='item-img' data-src='https://img.picgo.net/2024/03/01/79cbef64d15fffeaf.md.png'><img src="https://img.picgo.net/2024/03/01/79cbef64d15fffeaf.md.png" alt="79cbef64d15fffeaf.md.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%878.SUF24O" class='item-img' data-src='https://img.picgo.net/2024/03/01/8f2e1a26ba06de4ed.png'><img src="https://img.picgo.net/2024/03/01/8f2e1a26ba06de4ed.png" alt="8f2e1a26ba06de4ed.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%879.SUFjLK" class='item-img' data-src='https://img.picgo.net/2024/03/01/9f3d0b8e394cecf27.md.png'><img src="https://img.picgo.net/2024/03/01/9f3d0b8e394cecf27.md.png" alt="9f3d0b8e394cecf27.md.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%8710.SUFHRd" class='item-img' data-src='https://img.picgo.net/2024/03/01/10e39d216ead509edc.md.png'><img src="https://img.picgo.net/2024/03/01/10e39d216ead509edc.md.png" alt="10e39d216ead509edc.md.png"></a></p>
+<ol start="7">
+<li>保存退出即可</li>
+<li>打开文件管理器，上方输入“控制面板\系统和安全\电源选项”，如图：<br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%8711.SUFT6c" class='item-img' data-src='https://img.picgo.net/2024/03/01/11ade25b876c44da07.png'><img src="https://img.picgo.net/2024/03/01/11ade25b876c44da07.png" alt="11ade25b876c44da07.png"></a></li>
+</ol>
+<p>回车后找到：<br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%8712.SUFJIY" class='item-img' data-src='https://img.picgo.net/2024/03/01/120072b20b58e7f372.md.png'><img src="https://img.picgo.net/2024/03/01/120072b20b58e7f372.md.png" alt="120072b20b58e7f372.md.png"></a><br><a target="_blank" rel="noopener" href="https://www.picgo.net/image/%E5%9B%BE%E7%89%8713.SUFv8y" class='item-img' data-src='https://img.picgo.net/2024/03/01/1351f86c251ca46e0b.md.png'><img src="https://img.picgo.net/2024/03/01/1351f86c251ca46e0b.md.png" alt="1351f86c251ca46e0b.md.png"></a></p>
+<h2 id="二．使用"><a href="#二．使用" class="headerlink" title="二．使用"></a><strong>二．使用</strong></h2><p>睡觉前打开QQ的纪检请假专用聊天框，一定要保持在前台（即光标在输入区内），保持电脑打开，电量充足，然后就可以上床睡觉啦~</p>
+<h2 id="三．免责声明"><a href="#三．免责声明" class="headerlink" title="三．免责声明"></a><strong>三．免责声明</strong></h2><p>本软件&#x2F;脚本“VBS实现QQ自动发送早自习请假”仅供学习交流使用，严禁用于任何非法或侵犯他人权益的目的。使用本软件&#x2F;脚本，您应自行承担所有风险，包括但不限于账号安全、隐私泄露、法律纠纷等。</p>
+<p><strong>重要提示：</strong></p>
+<ol>
+<li><strong>非法使用</strong>：本软件&#x2F;脚本的任何非法使用，包括但不限于未经授权的自动化操作、恶意攻击他人系统、发送垃圾信息等，均属于违法行为，使用者将承担全部法律责任。</li>
+<li><strong>账号安全</strong>：使用本软件&#x2F;脚本可能导致您的QQ账号面临被封禁或其他安全风险。请确保您完全理解并接受这些风险。</li>
+<li><strong>隐私泄露</strong>：在使用本软件&#x2F;脚本时，您的个人信息（如QQ号、密码等）可能会暴露。请确保您在一个安全的环境中使用，并采取适当的保护措施。</li>
+<li><strong>第三方责任</strong>：本软件&#x2F;脚本的使用可能涉及第三方服务或平台。对于因使用本软件&#x2F;脚本而导致的与第三方之间的任何纠纷或法律责任，本软件&#x2F;脚本的开发者不承担任何责任。</li>
+</ol>
+<p><strong>开发者责任限制：</strong></p>
+<ul>
+<li>本软件&#x2F;脚本的开发者对于因使用本软件&#x2F;脚本而导致的任何直接或间接损失、损害、法律责任或纠纷，不承担任何责任。</li>
+<li>开发者有权在不通知用户的情况下，对本软件&#x2F;脚本进行更新、修改或终止服务。</li>
+</ul>
+<p><strong>用户义务：</strong></p>
+<ul>
+<li>用户应自行备份重要数据，并确保在使用本软件&#x2F;脚本前已充分了解其功能和风险。</li>
+<li>用户应遵守所有适用的法律法规，以及使用本软件&#x2F;脚本所涉及的第三方平台或服务的规定。</li>
+</ul>
+<p><strong>最终解释权：</strong></p>
+<p>本免责声明的最终解释权归本软件&#x2F;脚本的开发者所有。如有任何疑问或需要进一步的解释，请通过合法途径联系开发者。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/03/02/%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E5%88%B7%E6%96%B0%E6%95%99%E5%8A%A1%E5%B9%B3%E5%8F%B0/">← 下一篇 指定时间刷新教务平台</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/03/02/python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/">python实现2024春晚魔术 上一篇 →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="文章目录">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87"><span class="toc-number">1.</span> <span class="toc-text">VBS实现QQ自动发送早自习请假</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">一．配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">二．使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%8E%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span class="toc-number">1.3.</span> <span class="toc-text">三．免责声明</span></a></li></ol></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> 主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
