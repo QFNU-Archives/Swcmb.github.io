@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>幸运数字 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":"all","activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>幸运数字</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-04-08T08:14:14.000Z" id="date"> 2024-04-08</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-04-08T08:16:01.151Z" id="updated"> 2024-04-08</time></div></span><br><span>Word Count: <div class="control">390</div></span><br><span>Read Time: <div class="control">1 min</div></span></div></div><hr><div id="post-content"><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>哈沙德数是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。例如126是十进制下的一个哈沙德数，因为(126)10 mod(1+2+6)0;126 也是进制下的哈沙德数，因为(126)10 &#x3D;(176)8，(126)10 mod(1+7+6)&#x3D;0;同时 126也是16进制下的哈沙德数，因为(126)10(7e)16，(126)10 mod(7 +e)&#x3D;0。小蓝认为，如果一个整数在二进制、八进制、十进制、十六进制下均为哈沙德数，那么这个数字就是幸运数字，第1至第10个幸运数字的+进制表示为:1,2,4,6,8,40,48,72,120,126…。现在他想知道第2023个幸运数字是多少?你只需要告诉小蓝这个整数的十进制表示即可。</p>
+<h1 id="答案提交"><a href="#答案提交" class="headerlink" title="答案提交"></a>答案提交</h1><p>这是一道结果填空的题，你只需要算出结果后提交即可。本题的<br>结果为一个整数，在提交答案时只填写这个整数，填写多余的内<br>容将无法得分。</p>
+<h1 id="Mycode"><a href="#Mycode" class="headerlink" title="Mycode"></a>Mycode</h1><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">harshad_num</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    num_sum<span class="token operator">=</span><span class="token number">0</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> i<span class="token operator">==</span><span class="token string">"a"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span><span class="token number">10</span>
+        <span class="token keyword">elif</span> i<span class="token operator">==</span><span class="token string">"b"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token number">11</span>
+        <span class="token keyword">elif</span> i<span class="token operator">==</span><span class="token string">"c"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token number">12</span>
+        <span class="token keyword">elif</span> i<span class="token operator">==</span><span class="token string">"d"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token number">13</span>
+        <span class="token keyword">elif</span> i<span class="token operator">==</span><span class="token string">"e"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token number">14</span>
+        <span class="token keyword">elif</span> i<span class="token operator">==</span><span class="token string">"f"</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token number">15</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            num_sum <span class="token operator">+=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> num_sum<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+    <span class="token keyword">elif</span> a<span class="token operator">%</span>num_sum<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">1</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token number">0</span>
+times<span class="token operator">=</span><span class="token number">0</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">10000000000000000</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    bin_num<span class="token operator">=</span><span class="token builtin">bin</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    oct_num<span class="token operator">=</span><span class="token builtin">oct</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    hex_num<span class="token operator">=</span><span class="token builtin">hex</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+    <span class="token keyword">if</span> harshad_num<span class="token punctuation">(</span>i<span class="token punctuation">,</span>bin_num<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span> <span class="token keyword">and</span> harshad_num<span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">and</span> harshad_num<span class="token punctuation">(</span>i<span class="token punctuation">,</span>oct_num<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span> <span class="token keyword">and</span> harshad_num<span class="token punctuation">(</span>i<span class="token punctuation">,</span>hex_num<span class="token punctuation">)</span><span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">:</span>
+        times<span class="token operator">+=</span><span class="token number">1</span><span class="token comment">#注意十进制整除</span>
+    <span class="token keyword">if</span> times<span class="token operator">==</span><span class="token number">2023</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+        <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<div id="paginator"></div></div><div id="post-footer"><div id="pages"><div class="footer-link" style="width: 50%;text-align:right;border-right:1px #fe2 solid"><a href="/2024/04/08/%E6%9C%80%E5%B0%8F%E7%A0%9D%E7%A0%81/">← Next 最小砝码</a></div><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/04/08/%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86/">串的处理 Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AD%94%E6%A1%88%E6%8F%90%E4%BA%A4"><span class="toc-number">2.</span> <span class="toc-text">答案提交</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mycode"><span class="toc-number">3.</span> <span class="toc-text">Mycode</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
