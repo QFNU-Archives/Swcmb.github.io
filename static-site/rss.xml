@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Ianwusb's Blog</title>
+    <link>https://ianwusb.blog</link>
+    <atom:link href="https://ianwusb.blog/rss.xml" rel="self" type="application/rss+xml"/>
+    <description/>
+    <generator>Solo, v4.4.0, https://b3log.org/solo</generator>
+    <lastBuildDate>Sat, 13 Jul 2024 01:28:30 +0800</lastBuildDate>
+    <language>zh-cn</language>
+    <item>
+      <title>数字电子技术基础重点</title>
+      <link>https://ianwusb.blog/articles/2024/07/09/1720536942224.html</link>
+      <description><![CDATA[<p>DownLoad : 点此下载 概览 数字电子技术基础涉及数制和码制的转换、二进制运算以及逻辑代数基础等多个方面。以下是内容的详细叙述： 第一章 数制和码制 在数字电子技术中，了解不同数制之间如何转换是非常重要的。这包括十进制到任意进制的转换、任意进制转十进制，以及二进制与十六进制之间的互相转换。这些转换涉及到整数部分和小数部分的分别处理，其中包含了连续除法和连续乘法的应用。例如，将十进制小数转换为二进制时，需要分别对小数部分进行乘以目标进制基数的操作，并取整数部分作为结果，重复此过程直至小数部分为0或达到所需精度。 第二章 逻辑代数基础 逻辑代数是数字电路设计的基础之一，它包括基本运算（如与运算、或运算和非运算）和常用运算（如与非运算、或非运算等）。掌握这些基础运算有助于理解和设计复杂的逻辑电路。此外，逻辑函数的最小项表达式和反演定理（摩根定理）对于简化逻辑表达式也非常重要。 第三章 门电路 门电路是构成数字逻辑电路的基本单元，常见的有正负逻辑的概念、OC门、OD门、TG门以及三态门的特点等。这些门电路在数字信号的处理和传输中起到关键作用。例如，OC门可以实现“线与”逻辑，而三态门则....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/07/09/1720536942224.html</guid>
+      <category>曲园</category>
+      <pubDate>Tue, 09 Jul 2024 22:55:42 +0800</pubDate>
+    </item>
+    <item>
+      <title>C++第4章示例程序</title>
+      <link>https://ianwusb.blog/articles/2024/07/08/1720385553231.html</link>
+      <description><![CDATA[<p>4.2  #include&lt;iostream&gt; using namespace std; class Complex{ public: Complex(){real=0;imag=0;} Complex(double r,double i){real=r;imag=i;} Complex operator+(Complex &amp;c2); void display(); private: double real; double imag; }; Complex Complex::operator+(Complex &amp;c2) { Complex c; c.real=real+c2.real; c.imag=imag+c2.imag; return c; } void Complex::display() { cout&lt;&lt;"("&lt;&lt;real&lt;&lt;","&lt;&lt;imag&lt;&lt;"i)"&lt;&lt;endl; } int main() { Complex c1(3,4),c2(5,-10),c3; c3=c1+c2;....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/07/08/1720385553231.html</guid>
+      <category>曲园</category>
+      <pubDate>Mon, 08 Jul 2024 04:52:33 +0800</pubDate>
+    </item>
+    <item>
+      <title>C++程序设计第6章大程序</title>
+      <link>https://ianwusb.blog/articles/2024/07/07/1720351320229.html</link>
+      <description><![CDATA[<p>这段代码中包含了许多面向对象编程和C++语言的知识点，以下是详细的解释：   类的定义和继承：  Shape是一个基类，定义了所有形状都应该具有的基本属性和行为。它包含虚函数area()和volume()，以及纯虚函数shapeName()。虚函数使得派生类可以重写这些函数，以提供具体的实现，而纯虚函数则要求任何直接继承自Shape的派生类都必须提供shapeName()的具体实现。 Point, Circle, 和 Cylinder都是从Shape类派生出来的子类，分别表示点、圆和圆柱体。这些类通过公有继承(public Shape)来继承Shape类的属性和方法。    构造函数：  每个类都有构造函数来初始化其成员变量。例如，Point类有一个带有两个参数的构造函数，用于初始化点的坐标。Circle类有一个带有三个参数的构造函数，用于初始化圆心坐标和半径。    虚函数：  在基类Shape中定义了虚函数area()和volume()，这些函数在派生类中被重写。这样做的目的是允许通过基类指针或引用调用派生类的相应函数，实现多态。例如，Circle类和Cylinder类都重写了ar....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/07/07/1720351320229.html</guid>
+      <category>曲园</category>
+      <pubDate>Sun, 07 Jul 2024 19:22:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>datetime库指南</title>
+      <link>https://ianwusb.blog/articles/2024/06/01/1717190442239.html</link>
+      <description><![CDATA[<p>日期与时间是计算机科学中的重要概念，在软件开发中涉及到时间的场景非常广泛。Python 的 Datetime 库为我们提供了一套强大而灵活的工具，使得处理日期和时间变得轻松而高效。本文将深入探讨 Datetime 库的各个方面，包括基本概念、常用操作、时区处理、格式化输出等，旨在为读者提供全面的指南，助力大家更好地利用 Python 处理日期与时间。 Datetime 库基础 Datetime 模块简介 Python 的 Datetime 模块是处理日期和时间的核心模块，提供了表示日期、时间、时间间隔的类和函数。主要的类包括：  datetime.date：表示日期的类。 datetime.time：表示时间的类。 datetime.datetime：表示日期和时间的类。 datetime.timedelta：表示时间间隔的类。   1import datetime 2 3# 创建日期对象 4today = datetime.date.today() 5print(today) # 输出: 当前日期 6 7# 创建时间对象 8current_time = datetime.time(1....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/06/01/1717190442239.html</guid>
+      <category>Algorithm</category>
+      <pubDate>Sat, 01 Jun 2024 05:20:42 +0800</pubDate>
+    </item>
+    <item>
+      <title>Manacher算法(马拉车算法)</title>
+      <link>https://ianwusb.blog/articles/2024/05/09/1715188029037.html</link>
+      <description><![CDATA[<p>#最长回文子串 def LongestPalindromicSubstring(s):#中心扩展法 sn=["^","#"]+list("#".join(s))+["#","^"] ans=0 for i in range(1,len(sn)-1): ext=0 while(sn[i-ext-1]==sn[i+ext+1]): ext+=1 ans=max(ext,ans) return ans print(LongestPalindromicSubstring("abbacabaxabacabaa")) def LongestPalindromicSubstring(s):#马拉车算法 sn=["^","#"]+list("#".join(s))+["#","^"] p=[0 for i in range(len(sn))] c=0 r=0 for i in range(1,len(sn)-1): if i&lt;=r: p[i]=min(r-i,p[2*c-i]) while(sn[i-p[i]-1]==sn[i+p[i]+1]): p[i]+=1 if p[i]+i&gt;r: ....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/05/09/1715188029037.html</guid>
+      <category>Algorithm</category>
+      <pubDate>Thu, 09 May 2024 01:07:09 +0800</pubDate>
+    </item>
+    <item>
+      <title>蓝桥输入输出</title>
+      <link>https://ianwusb.blog/articles/2024/04/13/1712962423139.html</link>
+      <description><![CDATA[<p>nums = list(map(int, input().split())) #这行代码接收用户的输入，并将输入转换为整数列表。 #首先，input()函数接收用户的输入，然后 #split()方法将这个输入拆分成一个字符串列表。 #接着，map()函数应用int()函数到列表的每个元素， #将每个字符串元素转换为整数。最后，li()函数 #将映射对象转换为列表。 print(' '.join(map(str, nums))) #这行代码将整数列表转换回字符串，并以空格分隔每个元素， #然后将整个字符串打印出来。首先，map()函数应用 #str()函数到列表的每个元素，将每个整数元素转换 #为字符串。然后，join()方法使用空格字符作为分隔符， #将字符串列表连接成一个字符串。 #最后，print()函数打印这个字符串。  #最大公约数 #约数︰如果整数a能被整数b整除，那么a叫做b的倍数， #b叫做a的约数。 #给定两个整数a,b，两个数的所有公共约数中的最大值 #即为最大公约数(Greatest Common Divisor , GCD)。 #例:12与16的最大公约数是4 #....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/04/13/1712962423139.html</guid>
+      <category>LanQiao</category>
+      <pubDate>Sat, 13 Apr 2024 06:53:43 +0800</pubDate>
+    </item>
+    <item>
+      <title>技术在文化保护中的应用</title>
+      <link>https://ianwusb.blog/articles/2024/04/11/1712787192239.html</link>
+      <description><![CDATA[<p>​ 随着科技的不断发展，越来越多的技术被应用到了文化保护领域。文化保护是指对文化遗产、非物质文化遗产以及相关环境进行保护、传承和弘扬的过程。在这个过程中，技术发挥着至关重要的作用，它帮助我们更好地记录、传播和保护文化遗产。本文将探讨C++和Python在文化保护中的应用，并通过代码示例来展示它们的功能和实现方法。 一、C++在文化保护中的应用 C++是一种广泛使用的编程语言，它在文化保护中的应用主要体现在以下几个方面：  数据结构与算法：C++提供了丰富的数据结构和算法库，可以用于处理大量的文化遗产数据。例如，我们可以使用C++的STL库中的map和set容器来存储和查询文化遗产的信息。  #include &lt;iostream&gt; #include &lt;map&gt; #include &lt;set&gt; using namespace std; int main() { map&lt;string, set&lt;string&gt;&gt; cultural_heritage; cultural_heritage["故宫"].insert("建筑"); cultu....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/04/11/1712787192239.html</guid>
+      <category>Note</category>
+      <pubDate>Thu, 11 Apr 2024 06:13:12 +0800</pubDate>
+    </item>
+    <item>
+      <title>前缀和与差分算法</title>
+      <link>https://ianwusb.blog/articles/2024/04/11/1712782568038.html</link>
+      <description><![CDATA[<p>前缀和算法(prefix sum) 前缀和是一种简单的有效的优化算法，能把计算复杂度为O(n)的区间计算优化为O(1)的端点计算 前缀和的概念 一个长度为n的数组a[1]~a[n]，前缀和sum[i]等于a[1]~a[i]的和： sum[i]=a[1]+a[2]+...+a[i] 利用递推，可以在O(n)时间内求得所有前缀和： sum[i]=sum[i-1]+a[i] 如果预计算出前缀和，就能利用它快速计算出数组中任意一个区间a[i]~a[j]的和，即： a[i]+a[i+1]+...+a[j-1]+a[j]=sum[j]-sum[j-1] 上式说明，复杂度为O(n)的区间求和计算，优化到了O(1)的前缀和计算 前缀和例题 如果建模时发现有区间求和操作，可以考虑使用前缀和优化 例一 0求和 - 蓝桥云课 (lanqiao.cn) 将给定的计算式子变换为： $$ S = (a_1 + a_2 + \ldots + a_{n-1}) \times a_n + (a_1 + a_2 + \ldots + a_{n-2}) \times a_{n-1} + (a_1 + a_2 + ldots....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/04/11/1712782568038.html</guid>
+      <category>LanQiao</category>
+      <pubDate>Thu, 11 Apr 2024 04:56:08 +0800</pubDate>
+    </item>
+    <item>
+      <title>帮派弟位</title>
+      <link>https://ianwusb.blog/articles/2024/04/09/1712593575150.html</link>
+      <description><![CDATA[<p>问题描述 小明在游戏中参加了一个帮派，这一天他突然想知道自己在帮派中是什么地位，但是帮派的查询系统突然坏了，目前只能知道每个人的附属关系，请问你能帮帮他重建关系网并找出他的地位 吗? 给定一个正整数n，代表该帮派的总人数，并且小明的序号是m 给出这n个人中每个人的附属关系，确保给出的关系网为一棵树。帮派地位的定义是按照自己手下有多少帮众决定的，注意手下的手下也算是自己的手下。如果手下的帮众相同则按序号较小的在前面。你能帮助小明找到自己的帮派地位吗? 输入格式 第一行，两个正整数n(1&lt;n&lt;10^5)和m(1&lt;=m&lt;=n)代表该帮派的总人数以及小明的序号 接下来n-1行，每行两个正整数，格式如下: L r(1&lt;L,r &lt;n)，代表序号为的L人附属于序号为r的人。 输出格式 一行，包含1个正整数，输出按手下人数多少排序后小明的排名。 Mycode n,m=map(int,input().split()) li=[] person=[[] for i in range(n+1)] person_num=[] for i in range(n-1): l,r....</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/04/09/1712593575150.html</guid>
+      <category>LanQiao</category>
+      <pubDate>Tue, 09 Apr 2024 00:26:15 +0800</pubDate>
+    </item>
+    <item>
+      <title>01串的熵</title>
+      <link>https://ianwusb.blog/articles/2024/04/09/1712593490077.html</link>
+      <description><![CDATA[<p>001串的熵 - 蓝桥云课 (lanqiao.cn) # import os # import sys # import math # # # 请在此输入您的代码 # x = 23333333 # for i in range(1,x//2): # 0出现的次数,小于x/2就能保证1的次数大于0的 # j=x-i # if round((j/x)*(math.log2(j/x))<em>j+(i/x)</em>(math.log2(i/x))*i,4)==-11625907.5798: # print(i) # break print(11027421)</p>]]></description>
+      <author>ianwusb</author>
+      <guid>https://ianwusb.blog/articles/2024/04/09/1712593490077.html</guid>
+      <category>LanQiao</category>
+      <pubDate>Tue, 09 Apr 2024 00:24:50 +0800</pubDate>
+    </item>
+  </channel>
+</rss>

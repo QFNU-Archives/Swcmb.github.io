@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/><meta name="theme-color" content="#3b3e43"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no"/><title>C++程序设计课后题 - Ianwusb's Blog</title><meta name="description" content="P36 10. #include&lt;iostream&gt; #include&lt;string&gt; using namespace std; int main() { string a,b; a=&quot;abcd&quot;; b=&quot;qwer&quot;; a=a+b; cout&lt;&lt;a; return 0; } 11. #include&lt;iostream&gt; #include&lt;string&gt; using namespace std; int main() { string a; cin &gt;&gt; a; for (int i = (a.size()-1); i &gt;= 0; i--) { cout &lt;&lt; a[i]; } cout &lt;&lt; endl; return 0; } 13. #include &lt;iostream&gt; #include &lt;vector&gt; #include &lt;algorithm&gt; using namespace std; // 重载函数，用于整数排序 void sortData(...."/><meta property="og:description" content="P36 10. #include&lt;iostream&gt; #include&lt;string&gt; using namespace std; int main() { string a,b; a=&quot;abcd&quot;; b=&quot;qwer&quot;; a=a+b; cout&lt;&lt;a; return 0; } 11. #include&lt;iostream&gt; #include&lt;string&gt; using namespace std; int main() { string a; cin &gt;&gt; a; for (int i = (a.size()-1); i &gt;= 0; i--) { cout &lt;&lt; a[i]; } cout &lt;&lt; endl; return 0; } 13. #include &lt;iostream&gt; #include &lt;vector&gt; #include &lt;algorithm&gt; using namespace std; // 重载函数，用于整数排序 void sortData(...."/>    <meta name="keywords" content=""/><link rel="dns-prefetch" href="https://ianwusb.blog"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://ianwusb.blog"><link rel="icon" type="image/png" href="https://b3log.org/images/brand/solo-128.png"/><link rel="apple-touch-icon" href="https://b3log.org/images/brand/solo-128.png"><link rel="shortcut icon" type="image/x-icon" href="https://b3log.org/images/brand/solo-128.png"><meta name="copyright" content="B3log"/><meta http-equiv="Window-target" content="_top"/><meta property="og:locale" content="zh_CN"/><meta property="og:title" content="C++程序设计课后题 - Ianwusb's Blog"/><meta property="og:site_name" content="Ianwusb&#39;s Blog"/><meta property="og:url"      content="https://ianwusb.blog/articles/2024/03/19/1710858112099.html?"/><meta property="og:image" content="https://b3log.org/images/brand/solo-128.png"/><link rel="search" type="application/opensearchdescription+xml" title="C++程序设计课后题 - Ianwusb's Blog" href="/opensearch.xml"><link href="https://ianwusb.blog/rss.xml" title="RSS" type="application/rss+xml" rel="alternate"/><link rel="manifest" href="https://ianwusb.blog/manifest.json">        <link rel="canonical" href="https://ianwusb.blog/articles/2024/03/19/1710858112099.html">        <link rel="stylesheet"
+              href="https://ianwusb.blog/skins/next/css/base.css?1720804607282"/>
+            <link rel="prev" title="Project" href="https://ianwusb.blog/articles/2024/03/18/1710697792149.html">
+            <link rel="next" title="Dijkstra最短路径算法的python函数实现" href="https://ianwusb.blog/articles/2024/03/19/1710863861099.html">
+    <script src="https://cdn.jsdelivr.net/npm/vditor@3.8.4/dist/js/icons/ant.js" async="" id="vditorIconScript"></script></head>
+<body>
+<header class="header">
+    <div class="header-line"></div>
+    <div class="fn-clear wrapper">
+        <div class="logo-wrap">
+            <a href="https://ianwusb.blog" rel="start">
+                <span class="logo-line-before"><i></i></span>
+                <span class="site-title">Ianwusb's Blog</span>
+                <span class="logo-line-after"><i></i></span>
+            </a>
+        </div>
+
+        <div class="site-nav-toggle fn-right"
+             onclick="$('.header-line').toggle();$('nav').children('.menu').slideToggle();">
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+            <span class="btn-bar"></span>
+        </div>
+
+        <nav>
+            <ul class="menu">
+            </ul>
+
+        </nav>
+    </div>
+</header><main class="main">
+    <div class="wrapper">
+        <div class="content">
+            <article class="posts-expand">
+                <header class="post-header">
+                    <h2 class="post-title">
+                        C++程序设计课后题
+                    </h2>
+                    <div class="post-meta">
+                            <span class="post-time">
+                                    发表于
+                                <time>
+                                    2024-03-19
+                                </time>
+                            </span>
+                        <span class="post-comments-count">
+                                &nbsp; | &nbsp;
+                                <a href="https://ianwusb.blog/articles/2024/03/19/1710858112099.html#b3logsolocomments">
+                                    <span data-uvstatcmt="1710858112099">0</span> 条评论</a>
+                        </span>
+                        &nbsp; | &nbsp; 热度
+                        <span data-uvstaturl="https://ianwusb.blog/articles/2024/03/19/1710858112099.html">0</span>°C
+                    </div>
+                </header>
+
+                <div class="post-body post-body--article vditor-reset">
+                    <h2 id="toc_h2_0">P36</h2>
+<h2 id="toc_h2_1">10.</h2>
+<pre><code class="language-C++">#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+	string a,b;
+	a="abcd";
+	b="qwer";
+	a=a+b;
+	cout&lt;&lt;a;
+	return 0;
+}
+</code></pre>
+<h2 id="toc_h2_2">11.</h2>
+<pre><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+int main() {
+	string a;
+	cin &gt;&gt; a;
+	for (int i = (a.size()-1); i &gt;= 0; i--) {
+		cout &lt;&lt; a[i];
+	}
+	cout &lt;&lt; endl;
+	return 0;
+
+}
+</code></pre>
+<h2 id="toc_h2_3">13.</h2>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+// 重载函数，用于整数排序
+void sortData(vector&lt;int&gt;&amp; data) {
+	sort(data.begin(), data.end());
+}
+
+// 重载函数，用于单精度浮点数排序
+void sortData(vector&lt;float&gt;&amp; data) {
+	sort(data.begin(), data.end());
+}
+
+// 重载函数，用于双精度浮点数排序
+void sortData(vector&lt;double&gt;&amp; data) {
+	sort(data.begin(), data.end());
+}
+
+//template&lt;typename T&gt;
+//T sortData(vector&lt;T&gt;&amp; data){
+//	sort(data.begin(), data.end());
+//}
+
+int main() {
+	vector&lt;int&gt; intData = {5, 3, 1, 4, 2};
+	vector&lt;float&gt; floatData = {5.5f, 3.3f, 1.1f, 4.4f, 2.2f};
+	vector&lt;double&gt; doubleData = {5.55, 3.33, 1.11, 4.44, 2.22};
+	
+	sortData(intData);
+	sortData(floatData);
+	sortData(doubleData);
+	
+	cout &lt;&lt; "Sorted integers: ";
+	for (int i : intData) {
+		cout &lt;&lt; i &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	cout &lt;&lt; "Sorted floats: ";
+	for (float f : floatData) {
+		cout &lt;&lt; f &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	cout &lt;&lt; "Sorted doubles: ";
+	for (double d : doubleData) {
+		cout &lt;&lt; d &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	return 0;
+}
+
+</code></pre>
+<h2 id="toc_h2_4">14.</h2>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+using namespace std;
+
+//// 重载函数，用于整数排序
+//void sortData(vector&lt;int&gt;&amp; data) {
+//	sort(data.begin(), data.end());
+//}
+//
+//// 重载函数，用于单精度浮点数排序
+//void sortData(vector&lt;float&gt;&amp; data) {
+//	sort(data.begin(), data.end());
+//}
+//
+//// 重载函数，用于双精度浮点数排序
+//void sortData(vector&lt;double&gt;&amp; data) {
+//	sort(data.begin(), data.end());
+//}
+
+template&lt;typename T&gt;
+T sortData(vector&lt;T&gt;&amp; data){
+	sort(data.begin(), data.end());
+}
+
+int main() {
+	vector&lt;int&gt; intData = {5, 3, 1, 4, 2};
+	vector&lt;float&gt; floatData = {5.5f, 3.3f, 1.1f, 4.4f, 2.2f};
+	vector&lt;double&gt; doubleData = {5.55, 3.33, 1.11, 4.44, 2.22};
+	
+	sortData(intData);
+	sortData(floatData);
+	sortData(doubleData);
+	
+	cout &lt;&lt; "Sorted integers: ";
+	for (int i : intData) {
+		cout &lt;&lt; i &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	cout &lt;&lt; "Sorted floats: ";
+	for (float f : floatData) {
+		cout &lt;&lt; f &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	cout &lt;&lt; "Sorted doubles: ";
+	for (double d : doubleData) {
+		cout &lt;&lt; d &lt;&lt; " ";
+	}
+	cout &lt;&lt; endl;
+	
+	return 0;
+}
+
+</code></pre>
+<h1 id="toc_h1_5">P70</h1>
+<h2 id="toc_h2_6">6.</h2>
+<pre><code class="language-C++">#include&lt;iostream&gt;
+using namespace std;
+class Cuboid {
+public:
+	void setdata(int l,int w,int h){length=l;width=w;height=h;}
+	int volume()
+	{
+		return length*width*height;
+	}
+private:
+	int length;
+	int width;
+	int height;
+};
+int main()
+{
+	Cuboid cuboid[3];
+	int a,b,c;
+	for(int i=0;i&lt;3;i++){
+		cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;
+		cuboid[i].setdata(a,b,c);
+	}
+	for(int i=0;i&lt;3;i++){
+		cout&lt;&lt;"No."&lt;&lt;(i+1)&lt;&lt;"'s voiume is "&lt;&lt;cuboid[i].volume()&lt;&lt;endl;
+	}
+	return 0;
+	
+}
+</code></pre>
+<h1 id="toc_h1_7">P122</h1>
+<h2 id="toc_h2_8">1.</h2>
+<p>构造函数和析构函数在面向对象编程中扮演着至关重要的角色。它们主要用于对象的创建和销毁过程，确保对象在使用前后能够保持有效的状态。下面将详细介绍这两个特殊成员函数的作用及自定义它们的情况。</p>
+<h3 id="toc_h3_9">一、构造函数的作用</h3>
+<ul>
+<li><strong>初始化对象</strong>：构造函数用于初始化对象的成员变量，确保每个成员变量都有一个合适的初始值。</li>
+<li><strong>资源分配</strong>：如果对象需要占用额外的资源（如动态内存、文件描述符等），构造函数是申请这些资源的合适地点。</li>
+<li><strong>满足特定条件的对象创建</strong>：在某些情况下，只有当特定条件满足时才能创建对象，构造函数可以包含逻辑来检查这些条件。</li>
+<li><strong>依赖性注入</strong>：构造函数可以接收参数，用于注入依赖，如服务、配置或其他对象，实现解耦和可测试性。</li>
+</ul>
+<h3 id="toc_h3_10">二、析构函数的作用</h3>
+<ul>
+<li><strong>资源释放</strong>：析构函数负责释放对象在生命周期中申请的资源，如动态内存、文件描述符等，以防止资源泄露。</li>
+<li><strong>状态更新</strong>：对象销毁前可能需要更新某些状态或通知其他部分的代码，析构函数是执行这些操作的理想地点。</li>
+<li><strong>持久化数据</strong>：如果对象在生命周期中有状态改变且需要保存到磁盘，析构函数可以是实施这一操作的好地方。</li>
+<li><strong>对象清理</strong>：在对象被销毁之前，析构函数确保与之相关的所有操作都已经妥善完成或回滚，保持系统的稳定性。</li>
+</ul>
+<h3 id="toc_h3_11">三、什么时候需要自定义构造函数和析构函数</h3>
+<ul>
+<li><strong>当类的成员变量需要在对象创建时进行特定的初始化</strong>：如果仅仅依靠编译器生成的默认构造函数无法正确初始化对象，就需要自定义构造函数。</li>
+<li><strong>当类需要管理资源</strong>：如果类的对象会分配动态内存、文件、网络连接或其他任何形式的资源，就需要自定义构造函数来分配（和析构函数来释放）这些资源。</li>
+<li><strong>当需要限制对象创建的方式</strong>：如果类的实例化需要满足特定条件，或者想要控制如何以及何时创建对象，自定义构造函数是实现这一点的方式。</li>
+<li><strong>当类的对象需要在某些条件下持续追踪或修改状态</strong>：如果对象的状态改变需要在销毁前保存或处理，就需要自定义析构函数来确保这些操作的正确执行。</li>
+</ul>
+<p>综上所述，通过自定义构造函数和析构函数，可以精确控制对象的创建和销毁过程，确保资源的合理使用和及时回收，以及满足特定的业务逻辑需求。这不仅有助于提高代码的可维护性和可读性，也是实现某些复杂功能的关键所在。</p>
+<h2 id="toc_h2_12">2.</h2>
+<pre><code class="language-c++">#include &lt;iostream&gt;
+using namespace std;
+class Date {
+public:
+	Date(int, int, int);
+	Date(int, int);
+	Date(int);
+	Date( );
+	void display( );
+private:
+	int month;
+	int day;
+	int year;
+};
+Date::Date(int m, int d, int y): month(m), day(d), year(y)
+{ }
+Date::Date(int m, int d): month(m), day(d) {
+	year = 2005;
+}
+Date::Date(int m): month(m) {
+	day = 1;
+	year = 2005;
+}
+Date::Date( ) {
+	month = 1;
+	day = 1;
+	year = 2005;
+}
+void Date::display( ) {
+	cout &lt;&lt; month &lt;&lt; "/" &lt;&lt; day &lt;&lt; "/" &lt;&lt; year &lt;&lt; endl;
+}
+int main( ) {
+	Date d1(10, 13, 2005);
+	Date d2(12, 30);
+	Date d3(10);
+	Date d4;
+	d1.display( );
+	d2.display( );
+	d3.display( );
+	d4.display( );
+	return 0;
+}
+</code></pre>
+<h2 id="toc_h2_13">3.</h2>
+<p>修改后报错：</p>
+<table>
+<thead>
+<tr><th><strong>文件名</strong></th><th><strong>行</strong></th><th><strong>列</strong></th><th><strong>描述</strong></th></tr>
+</thead>
+<tbody>
+<tr><td><u><em><strong>D:/Files/Documents/untitled1.cpp</strong></em></u></td><td><u><em><strong>6</strong></em></u></td><td><u><em><strong>2</strong></em></u></td><td><u>***[错误] 'Date::Date(int, int, int)' cannot be overloaded with  'Date::Date(int, int, int)'***</u></td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>5</td><td>2</td><td>[说明] previous  declaration 'Date::Date(int, int, int)'</td></tr>
+<tr><td><u><em><strong>D:/Files/Documents/untitled1.cpp</strong></em></u></td><td><u><em><strong>17</strong></em></u></td><td><u><em><strong>1</strong></em></u></td><td><u>***[错误] no declaration matches 'Date::Date(int, int)'***</u></td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] candidates  are: 'constexpr Date::Date(Date&amp;&amp;)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] 'constexpr  Date::Date(const Date&amp;)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>8</td><td>2</td><td>[说明]  'Date::Date()'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>7</td><td>2</td><td>[说明]  'Date::Date(int)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>15</td><td>1</td><td>[说明] 'Date::Date(int,  int, int)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] 'class  Date' defined here</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>0</td><td>-1</td><td>In function 'int main()':</td></tr>
+<tr><td><u><em><strong>D:/Files/Documents/untitled1.cpp</strong></em></u></td><td><u><em><strong>34</strong></em></u></td><td><u><em><strong>16</strong></em></u></td><td><u>***[错误] no matching function for call to 'Date::Date(int, int)'***</u></td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>24</td><td>1</td><td>[说明] candidate:  'Date::Date()'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>24</td><td>1</td><td>[说明] candidate  expects 0 arguments, 2 provided</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>20</td><td>1</td><td>[说明] candidate:  'Date::Date(int)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>20</td><td>1</td><td>[说明] candidate  expects 1 argument, 2 provided</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>15</td><td>1</td><td>[说明] candidate:  'Date::Date(int, int, int)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>15</td><td>1</td><td>[说明] candidate  expects 3 arguments, 2 provided</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] candidate:  'constexpr Date::Date(const Date&amp;)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] candidate  expects 1 argument, 2 provided</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] candidate:  'constexpr Date::Date(Date&amp;&amp;)'</td></tr>
+<tr><td>D:/Files/Documents/untitled1.cpp</td><td>3</td><td>7</td><td>[说明] candidate  expects 1 argument, 2 provided</td></tr>
+</tbody>
+</table>
+<p>修改后：</p>
+<pre><code class="language-C++">#include &lt;iostream&gt;
+using namespace std;
+class Date {
+public:
+	Date(int=1,int=1,int=20005);//Date(int, int);
+	void display( );
+private:
+	int month;
+	int day;
+	int year;
+};
+Date::Date(int m, int d, int y): month(m), day(d), year(y)
+{ }
+void Date::display( ) {
+	cout &lt;&lt; month &lt;&lt; "/" &lt;&lt; day &lt;&lt; "/" &lt;&lt; year &lt;&lt; endl;
+}
+int main( ) {
+	Date d1(10, 13, 2005);
+	Date d2(12, 30);
+	Date d3(10);
+	Date d4;
+	d1.display( );
+	d2.display( );
+	d3.display( );
+	d4.display( );
+	return 0;
+}
+</code></pre>
+<h2 id="toc_h2_14">4.</h2>
+<pre><code class="language-C++">#include&lt;iostream&gt;
+using namespace std;
+class Student{
+public:
+	Student(int a,int b){id=a;grade=b;}
+	friend ostream&amp; operator&lt;&lt;(ostream&amp; output,Student&amp; stu)
+	{
+		output&lt;&lt;stu.id&lt;&lt;" "&lt;&lt;stu.grade&lt;&lt;endl;
+		return output;
+	}
+private:
+	int id;
+	int grade;
+};
+int main()
+{
+	Student students[5]={
+		Student(1,2),
+		Student(3,4),
+		Student(5,6),
+		Student(7,8),
+		Student(9,10)
+	};
+	Student* p = students; // 指针指向数组首元素
+	cout &lt;&lt; *p &lt;&lt; *(p + 2) &lt;&lt; *(p + 4) &lt;&lt; endl; // 输出第1，3，5个学生的数据
+	return 0;
+}
+
+</code></pre>
+<h2 id="toc_h2_15">5.</h2>
+<pre><code class="language-C++">#include&lt;iostream&gt;
+using namespace std;
+class Student{
+public:
+	Student(int a,int b){id=a;grade=b;}
+	int getGrade(){
+		return grade;
+	}
+	friend ostream&amp; operator&lt;&lt;(ostream&amp; output,Student&amp; stu)
+	{
+		output&lt;&lt;stu.id&lt;&lt;" "&lt;&lt;stu.grade&lt;&lt;endl;
+		return output;
+	}
+private:
+	int id;
+	int grade;
+};
+int max(int num, Student* pt){
+	int maxnum = 0;
+	for(int i = 0; i &lt; num; i++){
+		if(maxnum &lt; pt[i].getGrade()){
+			maxnum = pt[i].getGrade();
+		}
+	}
+	return maxnum;
+}
+
+int main()
+{
+	Student students[5]={
+		Student(1,2),
+		Student(3,4),
+		Student(5,6),
+		Student(7,8),
+		Student(9,10)
+	};
+	cout&lt;&lt;max(5,students)&lt;&lt;endl;
+	return 0;
+}
+</code></pre>
+<h2 id="toc_h2_16">9.</h2>
+<pre><code class="language-C++">#include &lt;iostream&gt; 
+using namespace std; 
+class Product 
+{public: 
+	Product(int m, int q, float p): num(m), quantity(q), price(p) {}; 
+	void total(); 
+	static float average(); 
+	static void display(); 
+private: 
+	int num;                         //销货员号 
+	int quantity;                    //销货件数 
+	float price;                     //销货单价 
+	static float discount;           //商店统一折扣 
+	static float sum;                //总销售款 
+	static int n;                    //商品销售总件数 
+}; 
+void Product::total()                   //求销售款和销售件数 
+{
+	float rate = 1.0; 
+	if (quantity &gt; 10) rate = 0.98 * rate; 
+	sum = sum + quantity * price * rate * (1 - discount); //累计销售款 
+	n = n + quantity;                                 //累计销售件数 
+} 
+void Product::display()                  //输出销售总件数和平均价 
+{
+	cout &lt;&lt; sum &lt;&lt; endl; 
+	cout &lt;&lt; average() &lt;&lt; endl; 
+} 
+float Product::average()               //求平均价 
+{
+	return (sum / n);
+} 
+
+float Product::discount = 0.05;       //对静态数据成员初始化 
+float Product::sum = 0;               //对静态数据成员初始化 
+int Product::n = 0;                   //对静态数据成员初始化 
+
+int main() 
+{
+	Product Prod[3] = {Product(101, 5, 23.5), Product(102, 12, 24.56), Product(103, 100, 21.5)}; 
+	//定义Product类对象数组， 并给出数据 
+	for (int i = 0; i &lt; 3; i++)          //统计3个销货员的销货情况 
+		Prod[i].total(); 
+	Product::display();                   //输出结果 
+	return 0; 
+}
+
+</code></pre>
+<h2 id="toc_h2_17">P157</h2>
+<h3 id="toc_h3_18">7.</h3>
+<pre><code class="language-C++">#include&lt;iostream&gt;
+#include&lt;string&gt;
+using namespace std;
+
+class Student{
+public:
+	int num;
+	int grade;
+	string name;
+	char sex;
+};
+
+class Teacher{
+public:
+	Teacher(Student&amp; stu, int s, int d){
+		num = stu.num;
+		name = stu.name;
+		sex = stu.sex;
+		salary = s;
+		discipline = d;
+	}
+	int num;
+	int salary;
+	int discipline;
+	string name;
+	char sex;
+};
+
+int main() {
+	Student student1;
+	student1.num = 1;
+	student1.grade = 3;
+	student1.name = "张三";
+	student1.sex = 'M';
+	
+	cout &lt;&lt; "学生姓名：" &lt;&lt; student1.name &lt;&lt; endl;
+	cout &lt;&lt; "学生学号：" &lt;&lt; student1.num &lt;&lt; endl;
+	cout &lt;&lt; "学生性别：" &lt;&lt; (student1.sex == 'M' ? "男" : "女") &lt;&lt; endl;
+	cout &lt;&lt; "学生年级：" &lt;&lt; student1.grade &lt;&lt; endl&lt;&lt;endl;
+	
+	Teacher teacher1(student1, 5000, 10);
+	cout &lt;&lt; "教师编号：" &lt;&lt; teacher1.num &lt;&lt; endl;
+	cout &lt;&lt; "教师姓名：" &lt;&lt; teacher1.name &lt;&lt; endl;
+	cout &lt;&lt; "教师性别：" &lt;&lt; teacher1.sex &lt;&lt; endl;
+	cout &lt;&lt; "教师薪水：" &lt;&lt; teacher1.salary &lt;&lt; endl;
+	cout &lt;&lt; "教师学科：" &lt;&lt; teacher1.discipline &lt;&lt; endl;
+	
+	return 0;
+}
+
+</code></pre>
+<h2 id="toc_h2_19">P203</h2>
+<h3 id="toc_h3_20">5.</h3>
+<p>有以下程序结构，请分析访问属性。</p>
+<pre><code class="language-C++">class A {
+public:
+	void f1( );
+	int i;
+protected:
+	void f2( );
+	int j;
+private:
+	int k;
+};
+class B: public A {
+public:
+	void f3( );
+protected:
+	int m;
+private:
+	int n;
+//A 为基类
+//B 为 A的公用派生类
+};
+class C: public B {         //C为B的公用派生类
+public:
+	void f4( );
+private:
+	int p;
+};
+int main( ) {
+	A a1;                      //a1是基类A的对象
+	B b1;                        //b1是派生类B的对象
+	C c1;                       //c1是派生类C的对象
+
+	return 0;
+}
+</code></pre>
+<p>请问：</p>
+<p>（1）在 main 函数中能否用b1.i,b1.j和bl.k 引用派生类B对象bI 中基类A的成员？</p>
+<p>（2）派生类B 中的成员函数能否调用基类A中的成员函数f1和f2？</p>
+<p>（3）派生类B 中的成员函数能否引用基类A中的数据成员i，j，k？</p>
+<p>（4）能否在main 函数中用cl.i,cl.j,cl.k,cl.m,cl.n,cl.p引用基类A 的成员i，j，k，派生类B 的成员 m，n，以及派生类C的成员 P？</p>
+<p>（5）能否在main 函数中用cl.f1（），c1.c2（），c1.f3（）和c1.f4（）调用f1，f2,f3，f4成员函数</p>
+<p>（6）派生类C的成员函数f4能否调用基类A中的成员函数f1，f2和派生类中的成员函数f3？</p>
+<p>——————</p>
+<p>（1）在 main 函数中不能直接用b1.i, b1.j和b1.k引用派生类B对象b1中基类A的成员，因为基类A的公共成员在派生类B中是保护成员。</p>
+<p>（2）派生类B 中的成员函数可以调用基类A中的成员函数f1和f2，但需要通过基类A的对象或指针来调用。例如：a1.f1() 或 a1.f2()。</p>
+<p>（3）派生类B 中的成员函数可以引用基类A中的数据成员i，j，k，但需要通过基类A的对象或指针来引用。例如：a1.i, a1.j, a1.k。</p>
+<p>（4）不能在main 函数中用cl.i, cl.j, cl.k, cl.m, cl.n, cl.p引用基类A 的成员i，j，k，派生类B 的成员 m，n，以及派生类C的成员 P。因为这些成员都是私有的，只能在它们所在的类内部访问。</p>
+<p>（5）不能在main 函数中用cl.f1（），c1.f2（），c1.f3（）和c1.f4（）调用f1，f2, f3，f4成员函数。因为f1和f2是基类A的私有成员函数，只能在基类A的内部访问；f3是派生类B的公共成员函数，可以在派生类B及其派生类的对象上调用；f4是派生类C的公共成员函数，可以在派生类C及其派生类的对象上调用。</p>
+<p>（6）派生类C的成员函数f4能够调用基类A中的成员函数f1，但不能直接调用f2和派生类中的成员函数f3</p>
+<hr>
+<p>在C++中，访问权限分为公有（public）、保护（protected）和私有（private）。继承关系可以通过这些访问权限来控制基类成员在派生类中的可见性。</p>
+<p>下面分析每个类的成员在各自类及其派生类中的访问属性：</p>
+<h4 id="toc_h4_21">基类 A 的成员</h4>
+<ul>
+<li><code>void f1()</code>: 公有成员函数，可以在类A及其所有派生类中直接访问。</li>
+<li><code>int i</code>: 公有数据成员，可以在类A及其所有派生类中直接访问。</li>
+<li><code>void f2()</code>: 保护成员函数，在类A及其派生类B、C、D中可以访问，但在类外不可访问。</li>
+<li><code>int j</code>: 保护数据成员，在类A及其派生类B、C、D中可以访问，但在类外不可访问。</li>
+<li><code>int k</code>: 私有数据成员，只能在类A中访问，在派生类B、C、D中均不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_22">派生类 B 的成员</h4>
+<ul>
+<li><code>void f3()</code>: 公有成员函数，可以在类B及其所有派生类中直接访问。</li>
+<li><code>int m</code>: 保护数据成员，可以在类B及其派生类C、D中访问，但在类A中不能直接访问。</li>
+<li><code>int n</code>: 私有数据成员，只能在类B中访问，在派生类C、D中不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_23">派生类 C 的成员</h4>
+<ul>
+<li><code>void f4()</code>: 公有成员函数，可以在类C及其所有派生类中直接访问。</li>
+<li><code>int p</code>: 私有数据成员，只能在类C中访问，在派生类D中不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_24">派生类 D 的成员</h4>
+<p>由于D是C的私有派生类，D的成员在C的外部是不可见的。因此，我们无法确定D的成员在D以外的范围的访问属性。</p>
+<h4 id="toc_h4_25">main函数中的访问情况</h4>
+<p>在main函数中，我们可以创建对象a1、b1和c1，并访问它们的公有成员。以下是各个对象的公有成员的访问情况：</p>
+<ul>
+<li><code>a1.f1()</code>: 可以调用，因为f1是公有成员函数。</li>
+<li><code>a1.i</code>: 可以访问，因为i是公有数据成员。</li>
+<li><code>b1.f1()</code>: 可以调用，因为f1是继承自A的公有成员函数。</li>
+<li><code>b1.f3()</code>: 可以调用，因为f3是B的公有成员函数。</li>
+<li><code>b1.i</code>: 可以访问，因为i是继承自A的公有数据成员。</li>
+<li><code>c1.f1()</code>: 可以调用，因为f1是继承自A的公有成员函数。</li>
+<li><code>c1.f3()</code>: 可以调用，因为f3是继承自B的公有成员函数。</li>
+<li><code>c1.f4()</code>: 可以调用，因为f4是C的公有成员函数。</li>
+<li><code>c1.i</code>: 可以访问，因为i是继承自A的公有数据成员。</li>
+</ul>
+<p>注意：对于保护成员和私有成员，它们不能在类的外部直接访问，但可以在派生类中通过特定的方式访问（如通过公有成员函数间接访问）。</p>
+<hr>
+<h3 id="toc_h3_26">6.</h3>
+<p>有以下程序结构，请分析所有成员在各类的范围内的访问属性：</p>
+<pre><code class="language-C++">class A {                       //基类
+public:
+	void f1( );
+protected:
+	void f2( );
+private:
+	int i;
+};
+
+class B: public A {              // B为A的公用派生类
+public:
+	void f3( );
+	int k;
+private:
+	int m;
+};
+
+class C: protected B {         //C为B的保护派生类
+public:
+	void f4( );
+protected:
+	int n;
+private:
+	int p;
+};
+
+class D: private C {          //D为C的私有派生类
+public:
+	void f5( );
+protected:
+	int q;
+private:
+	int r;
+};
+void main() {
+	A a1;                       //a1是基类A的对象
+	B b1;                      //b1是派生类B的对象
+	C c1;                      //c1是派生类C的对象
+	D d1;                      //d1是派生类D的对象
+
+}
+</code></pre>
+<p>在分析所有成员在各类范围内的访问属性之前，我们需要了解C++中的访问控制和继承关系。在C++中，访问权限分为公有（public）、保护（protected）和私有（private）。继承关系可以通过这些访问权限来控制基类成员在派生类中的可见性。</p>
+<p>下面分析每个类的成员在各自类及其派生类中的访问属性：</p>
+<h4 id="toc_h4_27">基类 A 的成员</h4>
+<ul>
+<li><code>void f1()</code>: 公有成员函数，可以在类A及其所有派生类中直接访问。</li>
+<li><code>void f2()</code>: 保护成员函数，在类A及其派生类B、C、D中可以访问，但在类外不可访问。</li>
+<li><code>int i</code>: 私有数据成员，只能在类A中访问，在派生类B、C、D中均不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_28">派生类 B 的成员</h4>
+<ul>
+<li><code>void f3()</code>: 公有成员函数，可以在类B及其所有派生类中直接访问。</li>
+<li><code>int k</code>: 公有数据成员，可以在类B及其所有派生类中直接访问。</li>
+<li><code>int m</code>: 私有数据成员，只能在类B中访问，在派生类C、D中不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_29">派生类 C 的成员</h4>
+<ul>
+<li><code>void f4()</code>: 公有成员函数，可以在类C及其派生类D中直接访问，但在类B中不能直接访问（因为C是B的保护派生类）。</li>
+<li><code>int n</code>: 保护数据成员，可以在类C及其派生类D中访问，在类B中不能直接访问。</li>
+<li><code>int p</code>: 私有数据成员，只能在类C中访问，在派生类D中不可直接访问。</li>
+</ul>
+<h4 id="toc_h4_30">派生类 D 的成员</h4>
+<ul>
+<li><code>void f5()</code>: 公有成员函数，只能在类D中访问，因为D是C的私有派生类，f5在类D外部不可直接访问。</li>
+<li><code>int q</code>: 保护数据成员，只能在类D中访问。</li>
+<li><code>int r</code>: 私有数据成员，只能在类D中访问。</li>
+</ul>
+<h4 id="toc_h4_31">总结</h4>
+<ul>
+<li>在<code>main()</code>函数中，只有公有成员可以直接被访问。对于类A、B、C、D的对象a1、b1、c1、d1，只有各自的公有成员函数和数据成员可以被直接访问。</li>
+<li>保护成员和私有成员不能在类的外部直接访问，但可以在派生类中通过特定的方式访问（如通过公有成员函数间接访问）。</li>
+<li>特别注意，由于D是C的私有派生类，D的成员在C的外部是不可见的，这意味着即使f4在C中是公有的，也不能在D的对象上直接调用f4，除非在D内部提供了相应的接口。</li>
+</ul>
+<h2 id="toc_h2_32">7.</h2>
+<pre><code class="language-C++">#include &lt;iostream&gt; 
+using namespace std; 
+class A 
+{ 
+	public: 
+	A( ){a=0;b=0;} 
+	A(int i){a=i;b=0;} 
+	A(int i,int j){a=i;b=j;} 
+	void display( ){cout&lt;&lt;"a="&lt;&lt;a&lt;&lt;" b="&lt;&lt;b;} 
+	private: 
+	int a; 
+	int b; 
+}; 
+class B: public A 
+{ 
+	public: 
+	B( ){c=0;} 
+	B(int i):A(i){c=0;} 
+	B(int i,int j):A(i,j){c=0;} 
+	B(int i,int j,int k):A(i,j){c=k;} 
+	void display1( ) 
+	{display( ); 
+		cout&lt;&lt;" c="&lt;&lt;c&lt;&lt;endl; 
+	} 
+	private: 
+	int c; 
+}; 
+int main( ) 
+{ B b1; 
+	B b2(1); 
+	B b3(1,3); 
+	B b4(1,3,5); 
+	b1.display1( ); 
+	b2.display1( ); 
+	b3.display1( ); 
+	b4.display1( ); 
+	return 0; 
+}
+</code></pre>
+<p>程序执行过程如下：</p>
+<ol>
+<li>
+<p>定义了一个名为A的类，包含三个构造函数和一个display成员函数。构造函数分别接受不同数量的参数，用于初始化类的成员变量a和b。display函数用于输出成员变量a和b的值。</p>
+</li>
+<li>
+<p>定义了一个名为B的类，继承自A类。B类包含四个构造函数和一个display1成员函数。构造函数分别接受不同数量的参数，用于初始化基类A的成员变量a、b和派生类B的成员变量c。display1函数调用基类的display函数并输出成员变量c的值。</p>
+</li>
+<li>
+<p>在main函数中，创建了四个B类的对象：b1、b2、b3和b4。分别使用不同的构造函数进行初始化。</p>
+</li>
+<li>
+<p>调用每个对象的display1函数，输出它们的成员变量a、b和c的值。</p>
+</li>
+</ol>
+<p>具体执行过程如下：</p>
+<ul>
+<li>b1: 使用默认构造函数A()，a和b都被初始化为0，c被初始化为0。输出结果为 "a=0 b=0 c=0"。</li>
+<li>b2: 使用带一个整数参数的构造函数A(int i)，a被初始化为1，b被初始化为0，c被初始化为0。输出结果为 "a=1 b=0 c=0"。</li>
+<li>b3: 使用带两个整数参数的构造函数A(int i, int j)，a被初始化为1，b被初始化为3，c被初始化为0。输出结果为 "a=1 b=3 c=0"。</li>
+<li>b4: 使用带三个整数参数的构造函数B(int i, int j, int k)，a被初始化为1，b被初始化为3，c被初始化为5。输出结果为 "a=1 b=3 c=5"。</li>
+</ul>
+<h2 id="toc_h2_33">8.</h2>
+<pre><code class="language-C++">#include &lt;iostream&gt; 
+using namespace std; 
+class A 
+{public: 
+	A( ){cout&lt;&lt;"constructing A "&lt;&lt;endl;} 
+	~A( ){cout&lt;&lt;"destructing A "&lt;&lt;endl;} 
+}; 
+class B:public A 
+{ 
+	public: 
+	B( ){cout&lt;&lt;"constructing B "&lt;&lt;endl;} 
+	~B( ){cout&lt;&lt;"destructing B "&lt;&lt;endl;} 
+}; 
+class C:public B 
+{public: 
+	C( ){cout&lt;&lt;"constructing C "&lt;&lt;endl;} 
+	~C( ){cout&lt;&lt;"destructing C "&lt;&lt;endl;} 
+}; 
+int main( ) 
+{C c1; 
+	return 0; 
+} 
+</code></pre>
+<p>程序执行过程如下：</p>
+<ol>
+<li>进入main函数。</li>
+<li>创建C类的对象c1。</li>
+<li>调用C类的构造函数，输出 "constructing C"。</li>
+<li>在C类的构造函数中，由于C类继承自B类，因此需要先调用B类的构造函数。</li>
+<li>调用B类的构造函数，输出 "constructing B"。</li>
+<li>在B类的构造函数中，由于B类继承自A类，因此需要先调用A类的构造函数。</li>
+<li>调用A类的构造函数，输出 "constructing A"。</li>
+<li>A类的构造函数执行完毕，返回到B类的构造函数。</li>
+<li>B类的构造函数执行完毕，返回到C类的构造函数。</li>
+<li>C类的构造函数执行完毕，对象c1的创建完成。</li>
+<li>main函数结束，开始执行对象的析构。</li>
+<li>首先调用C类的析构函数，输出 "destructing C"。</li>
+<li>在C类的析构函数中，由于C类继承自B类，因此需要先调用B类的析构函数。</li>
+<li>调用B类的析构函数，输出 "destructing B"。</li>
+<li>在B类的析构函数中，由于B类继承自A类，因此需要先调用A类的析构函数。</li>
+<li>调用A类的析构函数，输出 "destructing A"。</li>
+<li>A类的析构函数执行完毕，返回到B类的析构函数。</li>
+<li>B类的析构函数执行完毕，返回到C类的析构函数。</li>
+<li>C类的析构函数执行完毕，对象c1的析构完成。</li>
+<li>main函数结束，程序执行完毕。</li>
+</ol>
+<h3 id="toc_h3_34">9.</h3>
+<pre><code class="language-C++">#include&lt;string&gt; 
+#include &lt;iostream&gt; 
+using namespace std; 
+class Teacher 
+{public: 
+	Teacher(string nam,int a,char s,string tit,string ad,string t); //构造函数 
+	void display( );                            //输出姓名、性别、年龄、职称、地址、电话 
+protected: 
+	string name; 
+	int age; 
+	char sex; 
+	string title; 
+	string addr; 
+	string tel; 
+}; 
+Teacher::Teacher(string nam,int a,char s,string tit,string ad,string t):
+name(nam),age(a),sex(s),title(tit),addr(ad),tel(t){ } //此两行为构造函数定义 
+
+void Teacher::display( ) 
+{cout&lt;&lt;"name:"&lt;&lt;name&lt;&lt;endl; 
+	cout&lt;&lt;"age:"&lt;&lt;age&lt;&lt;endl; 
+	cout&lt;&lt;"sex:"&lt;&lt;sex&lt;&lt;endl; 
+	cout&lt;&lt;"title:"&lt;&lt;title&lt;&lt;endl; 
+	cout&lt;&lt;"address:"&lt;&lt;addr&lt;&lt;endl; 
+	cout&lt;&lt;"tel:"&lt;&lt;tel&lt;&lt;endl; 
+} 
+
+class Cadre 
+{public: 
+	Cadre(string nam,int a,char s,string p,string ad,string t); //构造函数 
+	void display( ); 
+protected: 
+	string name; 
+	int age; 
+	char sex; 
+	string post; 
+	string addr; 
+	string tel; 
+}; 
+Cadre::Cadre(string nam,int a,char s,string p,string ad,string t):
+name(nam),age(a),sex(s),post(p), addr(ad),tel(t){}//此两行为构造函数定义 
+
+void Cadre::display( ) 
+{cout&lt;&lt;"name:"&lt;&lt;name&lt;&lt;endl; 
+	cout&lt;&lt;"age:"&lt;&lt;age&lt;&lt;endl; 
+	cout&lt;&lt;"sex:"&lt;&lt;sex&lt;&lt;endl; 
+	cout&lt;&lt;"post:"&lt;&lt;post&lt;&lt;endl; 
+	cout&lt;&lt;"address:"&lt;&lt;addr&lt;&lt;endl; 
+	cout&lt;&lt;"tel:"&lt;&lt;tel&lt;&lt;endl; 
+} 
+
+class Person:public Teacher,public Cadre 
+{public: 
+	Person(string nam,int a,char s,string tit,string p,string ad,string t,float w); 
+	void show( ); 
+	private: 
+	float wage; 
+}; 
+
+Person::Person(string nam,int a,char s,string t,string p,string ad,string tel,float w): 
+Teacher(nam,a,s,t,ad,tel),
+Cadre(nam,a,s,p,ad,tel),
+wage(w) { } //以上为构造函数定义
+
+void Person::show( ) 
+{	Teacher::display( );                                  //指定作用域teacher类 
+	cout&lt;&lt;"post:"&lt;&lt;Cadre::post&lt;&lt;endl;                     //指定作用域Cadre类 
+	cout&lt;&lt;"wages:"&lt;&lt;wage&lt;&lt;endl; 
+} 
+
+int main( ) 
+{Person person1("Wang-li",50,'f',"prof.","president","135 Beijing Road,Shanghai",  
+	"(021)61234567",1534.5); 
+	person1.show( ); 
+	return 0; 
+} 
+</code></pre>
+                        <div>
+                            <hr>
+
+标题：C++程序设计课后题<br>
+作者：<a href="https://ianwusb.blog" target="_blank">ianwusb</a><br>
+地址：<a href="https://ianwusb.blog/articles/2024/03/19/1710858112099.html" target="_blank">https://ianwusb.blog/articles/2024/03/19/1710858112099.html</a><br>
+
+<!-- 签名档内可使用 HTML、JavaScript -->
+<br>
+                        </div>
+                </div>
+                <footer>
+                    <div class="post-tags">
+                            <a rel="tag" href="https://ianwusb.blog/tags/%E6%9B%B2%E5%9B%AD">
+                                曲园</a>
+                    </div>
+                    <div class="post-nav fn-clear">
+                            <div class="post-nav-prev post-nav-item fn-right">
+                                <a href="https://ianwusb.blog/articles/2024/03/18/1710697792149.html" rel="prev"
+                                   title="Project">
+                                    Project >
+                                </a>
+                            </div>
+                            <div class="post-nav-next post-nav-item fn-left">
+                                <a href="https://ianwusb.blog/articles/2024/03/19/1710863861099.html" rel="next" title="Dijkstra最短路径算法的python函数实现">
+                                    < Dijkstra最短路径算法的python函数实现
+                                </a>
+                            </div>
+                    </div>
+                </footer>
+            </article>
+        </div>
+            <div id="gitalk-container"></div>
+            <div id="b3logsolocomments"></div>
+            <div id="vcomment" data-name="ianwusb" data-postId="1710858112099"></div>
+            <div id="relevantArticles"></div>
+            <div id="randomArticles"></div>
+<div class="sidebar-toggle">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+</div>
+
+<aside class="sidebar">
+<ul class="article__toc">
+        <li class="toc__h2">
+            <a href="#toc_h2_0">P36</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_1">10.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_2">11.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_3">13.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_4">14.</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#toc_h1_5">P70</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_6">6.</a>
+        </li>
+        <li class="toc__h1">
+            <a href="#toc_h1_7">P122</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_8">1.</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_9">一、构造函数的作用</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_10">二、析构函数的作用</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_11">三、什么时候需要自定义构造函数和析构函数</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_12">2.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_13">3.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_14">4.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_15">5.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_16">9.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_17">P157</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_18">7.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_19">P203</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_20">5.</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_21">基类 A 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_22">派生类 B 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_23">派生类 C 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_24">派生类 D 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_25">main函数中的访问情况</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_26">6.</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_27">基类 A 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_28">派生类 B 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_29">派生类 C 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_30">派生类 D 的成员</a>
+        </li>
+        <li class="toc__h4">
+            <a href="#toc_h4_31">总结</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_32">7.</a>
+        </li>
+        <li class="toc__h2">
+            <a href="#toc_h2_33">8.</a>
+        </li>
+        <li class="toc__h3">
+            <a href="#toc_h3_34">9.</a>
+        </li>
+</ul></aside>
+    </div>
+</main>
+<footer class="footer">
+    <div class="wrapper">
+        <div class="fn-clear">
+            <a href="https://ianwusb.blog">Ianwusb's Blog</a>
+            
+            <div class="fn-right">
+            </div>
+        </div>
+        <div class="fn-clear">
+            &copy; 2024
+            <a href="https://ianwusb.blog">Ianwusb's Blog</a>
+            
+        </div>
+    </div>
+</footer>
+<div class="back-to-top" onclick="Util.goTop()"></div>
+
+<script>
+  var Label = {
+    speech: true,
+    servePath: "https://ianwusb.blog",
+    staticServePath: "https://ianwusb.blog",
+    luteAvailable: false,
+    hljsStyle: 'github',
+    langLabel: "zh_CN",
+    version: "4.4.0",
+    staticSite: true,
+    showCodeBlockLn: false,
+    articleId: "1710858112099",
+  }
+</script>
+<script src="https://ianwusb.blog/skins/next/js/common.min.js?1720804607282"></script>
+<script type="text/javascript">
+    Label.tocLabel = "目录"
+    Label.siteViewLabel = "站点概览"
+</script>
+<link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.css"/>
+<script async src="https://cdn.jsdelivr.net/npm/kanbanniang@0.2.10/index.js"></script>
+<div class="solo-kanbanniang">
+    <div class="solo-kanbanniang__tip"></div>
+    <canvas id="soloKanbanniang" width="280" height="250"></canvas>
+    <div class="solo-kanbanniang__tool">
+        <svg id="soloKanbanniangHome" viewBox="0 0 32 32" width="100%" height="100%">
+            <path d="M32 18.967l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18.516v12h-8v-8h-8v8h-8v-12l12-9z"></path>
+        </svg>
+        <svg id="soloKanbanniangRSS" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M320.364 768q0 45.728-32 77.728t-77.728 32-77.728-32-32-77.728 32-77.728 77.728-32 77.728 32 32 77.728zM612.94 838.272q1.152 16-9.728 27.424-10.272 12-26.848 12h-77.152q-14.272 0-24.576-9.44t-11.424-23.712q-12.576-130.848-105.44-223.712t-223.712-105.44q-14.272-1.152-23.712-11.424t-9.44-24.576V402.24q0-16.576 12-26.848 9.728-9.728 24.576-9.728h2.848q91.424 7.424 174.848 46.016t148 103.712q65.152 64.576 103.712 148t46.016 174.848z m292.576 1.152q1.152 15.424-10.272 26.848-10.272 11.424-26.272 11.424h-81.728q-14.848 0-25.44-10.016t-11.136-24.288q-6.848-122.848-57.728-233.44t-132.288-192-192-132.288-233.44-58.272q-14.272-0.576-24.288-11.136t-10.016-24.864V109.664q0-16 11.424-26.272 10.272-10.272 25.152-10.272h1.728q149.728 7.424 286.56 68.576t243.136 168q106.848 106.272 168 243.136t68.576 286.56z"></path>
+        </svg>
+        <svg id="soloKanbanniangChat" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M802.42709 96.163153H219.476155c-84.48109 0-154.896836 71.746044-154.896836 157.840888v393.119449c0 86.072331 70.415746 157.819398 154.896836 157.819399h214.038818V925.470963s22.526039 40.168862 64.767096 5.734608c30.965246-25.819039 126.721123-91.828428 171.775248-123.385145h132.369773c84.502579 0 154.896836-83.21526 154.896836-157.839865V251.125481c0-86.094844-70.394257-154.962328-154.896836-154.962328zM301.144176 518.002714c-39.427988 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044 39.426965 0 70.393233 31.577183 70.393234 71.746044 0 40.169885-30.966269 71.746044-70.393234 71.746044z m208.411657 0c-39.450501 0-70.415746-31.576159-70.415746-71.746044 0-40.168862 30.965246-71.746044 70.415746-71.746044 39.405475 0 70.394257 31.577183 70.394257 71.746044 0 40.169885-30.988782 71.746044-70.394257 71.746044z m211.203236 0c-39.426965 0-70.416769-31.576159-70.416769-71.746044 0-40.168862 30.988782-71.746044 70.416769-71.746044s70.415746 31.577183 70.415746 71.746044c-0.001023 40.169885-30.988782 71.746044-70.415746 71.746044z"></path>
+        </svg>
+        <svg id="soloKanbanniangChange" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M936.672 193.216l-226.88-64c-8.704-2.528-18.112-1.12-25.824 3.776-7.68 4.864-12.896 12.736-14.432 21.728C655.712 236.928 595.328 288 512 288c-71.424 0-142.464-103.296-163.776-143.104-7.136-13.28-22.528-19.84-37.024-15.68l-224 64C73.472 197.152 64 209.728 64 224v256a31.93 31.93 0 0 0 11.712 24.736c7.392 6.08 17.152 8.512 26.56 6.624L224 487.04V832c0 52.928 43.072 96 96 96h384c52.928 0 96-43.072 96-96V519.04l121.728 24.352c9.44 1.92 19.2-0.544 26.56-6.624C955.68 530.656 960 521.6 960 512V224c0-14.336-9.536-26.912-23.328-30.784zM672 800H352c-17.664 0-32-14.304-32-32s14.336-32 32-32h320c17.696 0 32 14.304 32 32s-14.304 32-32 32z"></path>
+        </svg>
+        <svg id="soloKanbanniangPhoto" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M898.048 258.048q23.552-1.024 46.592 9.216t40.96 27.136 28.672 39.424 10.752 46.08l0 390.144q0 24.576-10.752 47.104t-28.672 40.448-40.96 28.16-47.616 10.24l-697.344 0q-24.576 0-48.64-10.24t-42.496-27.648-29.696-40.448-11.264-48.64l0-381.952q0-22.528 10.752-45.568t28.672-41.472 39.936-30.208 44.544-11.776l63.488 0 13.312-83.968q3.072-20.48 18.432-32.768t34.816-12.288l456.704 0q19.456 0 34.304 10.752t16.896 34.304l14.336 83.968 54.272 0zM548.864 712.704q40.96 0 77.824-15.872t63.488-42.496 42.496-62.976 15.872-77.312-15.872-77.312-42.496-62.976-63.488-42.496-77.824-15.872-77.312 15.872-63.488 42.496-43.008 62.976-15.872 77.312 15.872 77.312 43.008 62.976 63.488 42.496 77.312 15.872z"></path>
+        </svg>
+        <svg id="soloKanbanniangGithub" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M1024 524.8c0 114.346667-32.554667 217.216-97.706667 308.565333-65.066667 91.306667-149.162667 154.538667-252.288 189.610667-11.989333 2.304-20.778667 0.682667-26.325333-4.778667a27.605333 27.605333 0 0 1-8.362667-20.48v-144.213333c0-44.16-11.52-76.501333-34.645333-97.024 25.344-2.730667 48.085333-6.826667 68.309333-12.288a268.629333 268.629333 0 0 0 62.72-26.666667 187.434667 187.434667 0 0 0 53.973334-45.44c14.421333-18.005333 26.197333-41.898667 35.328-71.765333 9.088-29.824 13.653333-64.128 13.653333-102.826667 0-55.125333-17.536-102.058667-52.650667-140.8 16.426667-41.429333 14.677333-87.893333-5.333333-139.392-12.458667-4.096-30.464-1.578667-54.016 7.509334a355.328 355.328 0 0 0-61.312 30.08L640 271.274667a462.336 462.336 0 0 0-128-17.749334c-43.989333 0-86.656 5.930667-128 17.749334a589.824 589.824 0 0 0-28.330667-18.432c-11.776-7.253333-30.336-16.042667-55.68-26.325334-25.344-10.24-44.416-13.312-57.301333-9.216-19.584 51.498667-21.12 97.962667-4.693333 139.434667-35.114667 38.698667-52.650667 85.632-52.650667 140.757333 0 38.698667 4.565333 72.874667 13.653333 102.485334 9.130667 29.610667 20.778667 53.546667 34.986667 71.765333 14.250667 18.218667 32.128 33.493333 53.674667 45.781333 21.546667 12.288 42.453333 21.205333 62.677333 26.666667 20.224 5.461333 43.008 9.557333 68.309333 12.288-17.749333 16.384-28.629333 39.850667-32.64 70.4a130.005333 130.005333 0 0 1-29.994666 10.24c-10.666667 2.261333-23.338667 3.413333-37.973334 3.413333-14.72 0-29.269333-4.906667-43.690666-14.677333-14.464-9.813333-26.794667-24.064-36.992-42.709333a109.226667 109.226667 0 0 0-32.341334-35.541334c-13.141333-9.130667-24.106667-14.592-33.024-16.426666l-13.312-2.048c-9.344 0-15.786667 1.024-19.328 3.072-3.584 2.090667-4.693333 4.693333-3.328 7.893333 1.28 3.157333 3.328 6.4 5.973334 9.557333 2.688 3.2 5.546667 5.930667 8.661333 8.192l4.693333 3.413334c9.770667 4.565333 19.413333 13.226667 29.013334 25.984 9.514667 12.757333 16.512 24.362667 20.992 34.858666l6.656 15.701334c5.76 17.322667 15.530667 31.317333 29.312 42.026666 13.781333 10.666667 28.672 17.536 44.672 20.48 16 2.986667 31.445333 4.565333 46.336 4.821334 14.890667 0.213333 27.221333-0.597333 36.992-2.389334l15.36-2.730666c0 17.28 0.085333 37.546667 0.298666 60.8l0.341334 36.906666a27.050667 27.050667 0 0 1-8.661334 20.48c-5.76 5.461333-14.677333 7.082667-26.666666 4.778667-103.125333-35.072-187.221333-98.261333-252.330667-189.610667C32.554667 742.058667 0 639.146667 0 524.8c0-95.232 22.869333-183.04 68.693333-263.466667A516.266667 516.266667 0 0 1 254.976 70.4C333.44 23.466667 419.114667 0 512 0c92.885333 0 178.56 23.466667 256.981333 70.4a516.266667 516.266667 0 0 1 186.368 190.976C1001.130667 341.802667 1024 429.653333 1024 524.842667z"></path>
+        </svg>
+        <svg id="soloKanbanniangClose" viewBox="0 0 1024 1024" width="32" height="32">
+            <path d="M517.572566143763 1018.6748601482986C238.26554897656422 1018.6748601482986 11.897910175114305 792.2714997690043 11.897910175114305 513.0002041796496c0-279.3070171671984 226.36763880144977-505.71037754649296 505.6746559686481-505.71037754649296 279.2712955893538 0 505.6746559686481 226.40336037929444 505.6746559686481 505.71037754649296C1023.2472221124112 792.2714997690043 796.8795833109612 1018.6748601482986 517.572566143763 1018.6748601482986zM754.7281214542927 339.25044954334646c13.752807470184345-13.752807470184345 9.680547595895998-40.186775075214015-9.073280772537204-58.94060344364717l-2.143294670678079-2.1075730928334457c-18.7538283684332-18.7538283684332-45.15207439561819-22.861809820566194-58.90488186580257-9.073280772537204l-168.21291007038468 168.24863164822932-180.42968969324974-180.46541127109438c-13.967136937252159-13.967136937252159-40.72259874288353-9.823433907274534-59.72647815622916 9.216167083915742l-2.143294670678079 2.143294670678079c-19.039600991190277 19.003879413345654-23.111860865478626 45.75934121897699-9.180445506071107 59.655035000539876l180.42968969324974 180.46541127109438-176.07165719620428 176.03593561835962c-13.788529048028984 13.824250625873615-9.716269173740633 40.151053497369375 9.073280772537204 58.94060344364717l2.1075730928334457 2.1075730928334457c18.7538283684332 18.7538283684332 45.15207439561819 22.897531398410823 58.90488186580257 9.073280772537204l176.10737877404887-176.10737877404887 170.39192631890742 170.42764789675192c13.967136937252159 13.931415359407513 40.686877165038865 9.85915548511917 59.690756578384516-9.180445506071107l2.1790162485227142-2.1790162485227142c19.039600991190277-18.968157835501014 23.147582443323273-45.72361964113239 9.180445506071107-59.690756578384516l-170.39192631890742-170.42764789675192L754.7281214542927 339.25044954334646z"></path>
+        </svg>
+    </div>
+</div>
+
+<script type="text/javascript">
+    Util.addScript('https://ianwusb.blog/js/page.min.js?1720804607282', 'soloPageScript')
+    var page = new Page({
+        "commentContentCannotEmptyLabel": "评论不能为空",
+        "oId": "1710858112099",
+        "blogHost": "https://ianwusb.blog",
+        "randomArticles1Label": "随机阅读：",
+        "externalRelevantArticles1Label": "站外相关阅读："
+    });
+    $(document).ready(function () {
+        page.load();
+    page.tips.externalRelevantArticlesDisplayCount = "0";
+        page.loadRandomArticles();
+        page.loadRelevantArticles('1710858112099', '<h4>相关阅读：</h4>');
+    NexT.initArticle()
+    });
+</script>
+</body>
+</html>
+
+<!-- Generated by Latke (https://github.com/88250/latke) in 23ms, 2024/07/13 01:28:31 -->
